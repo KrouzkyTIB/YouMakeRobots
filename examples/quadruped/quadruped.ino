@@ -43,8 +43,19 @@ YouMakeRobots robot;
 
 void setup() {
   Serial.begin(115200);
-  
-  robot.init();
+    /**
+   * Function for usage with other Arduino than Mega
+   * Here you can set your own pins on board
+   * @param frontRight Front right servo which is moving with whole leg
+   * @param frontRightLeg Front right servo which is moving with part of the leg
+   * @param frontLeft Front left servo which is moving with whole leg
+   * @param frontLeftLeg Front left servo which is moving with part of the leg
+   * @param backRight Back right servo which is moving with whole leg
+   * @param backRightLeg Back right servo which is moving with part of the leg
+   * @param backLeft Back left servo which is moving with whole leg
+   * @param backLeftLeg Back left servo which is moving with part of the leg
+   */
+  robot.init(); // Tady si dopište čísla pinů jak jdou za sebou jdou tam takto
   robot.initialPosition();
   robot.executeCommand("TRIM:0=40,1=-40,2=-40,3=40,4=-10,5=-50,6=0,7=-40");
   walk(5);
