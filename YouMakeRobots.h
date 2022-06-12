@@ -40,9 +40,17 @@
 class YouMakeRobots
 {
   public:
-    void init(); 
+    void init();
+    void init(uint8_t frontRight,
+              uint8_t frontRightLeg,
+              uint8_t frontLeft,
+              uint8_t frontLeftLeg,
+              uint8_t backRight,
+              uint8_t backRightLeg,
+              uint8_t backLeft,
+              uint8_t backLeftLeg);
+
     void initialPosition();
-    
     void setServoMin(unsigned int servoNum, unsigned int us);
     void setServoMax(unsigned int servoNum, unsigned int us);
     void setServoCenter(unsigned int servoNum, unsigned int us);

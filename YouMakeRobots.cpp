@@ -26,7 +26,9 @@
 // along with YouMakeRobots.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "YouMakeRobots.h"
-
+/**
+ * Standard constructor for robots with this library
+ */
 void YouMakeRobots::init() {
  
   /* attach servos to the pins. First servo is connected to pin 22 
@@ -46,6 +48,37 @@ void YouMakeRobots::init() {
   initialPosition();
 }
 
+/**
+ * Function for usage with other Arduino than Mega
+ * Here you can set your own pins on board
+ * @param frontRight Front right servo which is moving with whole leg
+ * @param frontRightLeg Front right servo which is moving with part of the leg
+ * @param frontLeft Front left servo which is moving with whole leg
+ * @param frontLeftLeg Front left servo which is moving with part of the leg
+ * @param backRight Back right servo which is moving with whole leg
+ * @param backRightLeg Back right servo which is moving with part of the leg
+ * @param backLeft Back left servo which is moving with whole leg
+ * @param backLeftLeg Back left servo which is moving with part of the leg
+ */
+void YouMakeRobots::init(int frontRight,
+                         int frontRightLeg,
+                         int frontLeft,
+                         int frontLeftLeg,
+                         int backRight,
+                         int backRightLeg,
+                         int backLeft,
+                         int backLeftLeg) {
+    uint8_t pins[] = {frontRight, frontRightLeg, frontLeft, frontLeftLeg, backRight, backRightLeg, backLeft, backLeftLeg};
+    for(unsigned int servoNum=0;servoNum<NUM_SERVOS;servoNum++){
+        servoPosition[servoNum]=0;
+        servoMin[servoNum]=SERVO_MIN;
+        servoCenter[servoNum]=SERVO_CENTER;
+        servoMax[servoNum]=SERVO_MAX;
+        servoTrim[servoNum]=0;
+        __moveSpeed=1000;
+        servo[servoNum].attach(pins[servoNum], servoMin[servoNum], servoMax[servoNum]);
+    }
+}
 
 /* initialPosition() move all servos to 0 degrees */
 void YouMakeRobots::initialPosition() {
