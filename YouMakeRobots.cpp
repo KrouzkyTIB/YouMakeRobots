@@ -60,14 +60,14 @@ void YouMakeRobots::init() {
  * @param backLeft Back left servo which is moving with whole leg
  * @param backLeftLeg Back left servo which is moving with part of the leg
  */
-void YouMakeRobots::init(int frontRight,
-                         int frontRightLeg,
-                         int frontLeft,
-                         int frontLeftLeg,
-                         int backRight,
-                         int backRightLeg,
-                         int backLeft,
-                         int backLeftLeg) {
+void YouMakeRobots::init(uint8_t frontRight,
+                         uint8_t frontRightLeg,
+                         uint8_t frontLeft,
+                         uint8_t frontLeftLeg,
+                         uint8_t backRight,
+                         uint8_t backRightLeg,
+                         uint8_t backLeft,
+                         uint8_t backLeftLeg) {
     uint8_t pins[] = {frontRight, frontRightLeg, frontLeft, frontLeftLeg, backRight, backRightLeg, backLeft, backLeftLeg};
     for(unsigned int servoNum=0;servoNum<NUM_SERVOS;servoNum++){
         servoPosition[servoNum]=0;
